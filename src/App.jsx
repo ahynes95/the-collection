@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL = "https://feazglrunmdmgugdhhnh.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_35_UFwAAWtL7TWjAf9BmWQ_xTBlOjOK";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const SUPABASE_SERVICE_KEY = import.meta.env.VITE_SUPABASE_SERVICE_KEY;
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const BUCKET = "the-collection-images";
 
@@ -227,15 +229,15 @@ export default function App() {
       if (imageFile) {
         const ext = imageFile.name.split(".").pop();
         const filename = `${Date.now()}.${ext}`;
-        const { error: upErr } = await supabase.storage.from(BUCKET).upload(filename, imageFile, { upsert: true });
+        const { error: upErr } = await supabaseAdmin.storage.from(BUCKET).upload(filename, imageFile, { upsert: true });
         if (upErr) throw upErr;
-        const { data: { publicUrl } } = supabase.storage.from(BUCKET).getPublicUrl(filename);
+        const { data: { publicUrl } } = supabaseAdmin.storage.from(BUCKET).getPublicUrl(filename);
         image_url = publicUrl;
       }
       const payload = { ...form, image_url };
       const { error } = editItem
-        ? await supabase.from("collection_items").update(payload).eq("id", editItem.id)
-        : await supabase.from("collection_items").insert([payload]);
+        ? await supabaseAdmin.from("collection_items").update(payload).eq("id", editItem.id)
+        : await supabaseAdmin.from("collection_items").insert([payload]);
       if (error) throw error;
       await fetchItems();
       setShowForm(false);
@@ -247,7 +249,7 @@ export default function App() {
 
   async function deleteItem(id) {
     if (!confirm("Remove this item from the archive?")) return;
-    await supabase.from("collection_items").delete().eq("id", id);
+    await supabaseAdmin.from("collection_items").delete().eq("id", id);
     await fetchItems();
   }
 
