@@ -11,10 +11,10 @@ const ERAS = ["All","Civil War","World War I","World War II","Korean War","Vietn
 const CATEGORIES = ["All","Uniforms","Medals & Badges","Weapons","Documents","Equipment","Photographs","Maps","Insignia","Other"];
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=1600&q=80",
-  "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1600&q=80",
-  "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=1600&q=80",
-  "https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=1600&q=80",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6742.jpeg",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6752.jpeg",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6745%20(1).jpeg",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6755%20(1).jpeg",
 ];
 
 const styles = `
