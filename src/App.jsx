@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL = "https://feazglrunmdmgugdhhnh.supabase.co";
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const SUPABASE_SERVICE_KEY = import.meta.env.VITE_SUPABASE_SERVICE_KEY;
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlYXpnbHJ1bm1kbWd1Z2RoaG5oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5ODA4NDQsImV4cCI6MjA5MjU1Njg0NH0.0Jxb1y1sngXqbbQz8ZJ6sch7bvr7pETy35t_sYPttO4";
+const SUPABASE_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlYXpnbHJ1bm1kbWd1Z2RoaG5oIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Njk4MDg0NCwiZXhwIjoyMDkyNTU2ODQ0fQ.5FsNPeH2KMQ836GS5Y5KWl8kcdtgHak-i-DEo8NALf0";
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
