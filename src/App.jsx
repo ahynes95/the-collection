@@ -41,7 +41,7 @@ const styles = `
   .nav-links .muted-btn { color: #6b5c48; font-weight: 400; }
 
   .landing { position: relative; height: 100vh; overflow: hidden; }
-  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;object-position: center 20%; filter: sepia(60%) brightness(0.55) contrast(1.1); transition: opacity 1.2s ease; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;object-position: center 30%; filter: sepia(60%) brightness(0.55) contrast(1.1); transition: opacity 1.2s ease; }
   .hero-img.fade-out { opacity: 0; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,6,2,0.3) 0%, rgba(10,6,2,0.15) 40%, rgba(10,6,2,0.7) 100%); }
   .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
