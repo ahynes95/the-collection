@@ -9,7 +9,7 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const BUCKET = "the-collection-images";
 
-const ERAS = ["All","Civil War","World War I","World War II","Korean War","Vietnam War","Cold War","Gulf War","Modern Era","Other"];
+const ERAS = ["All","Civil War","World War I","World War II","Vietnam War","Other"];
 const CATEGORIES = ["All","Uniforms","Medals & Badges","Weapons","Documents","Equipment","Photographs","Maps","Insignia","Other"];
 
 const HERO_IMAGES = [
