@@ -9,7 +9,7 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const BUCKET = "the-collection-images";
 
-const ERAS = ["All", "Civil War", "World War I", "World War II", "Vietnam War", "Other"];
+const ERAS = ["All", "Civil War", "World War I", "World War II", "Vietnam War", "Other", "Recent Acquisitions"];
 const CATEGORIES = ["All", "Uniforms", "Medals & Badges", "Weapons", "Documents", "Equipment", "Photographs", "Maps", "Insignia", "Other"];
 
 // Era configuration with placeholder images and descriptions
@@ -21,13 +21,13 @@ const ERA_CONFIG = {
     description: "Browse the complete archive of artifacts spanning American military history",
     accent: "#8b7355",
   },
-  "Civil War": {
-    image: "https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=800&q=80",
-    label: "Civil War",
-    years: "1861 – 1865",
-    description: "Artifacts from the War Between the States — uniforms, arms, and personal effects",
-    accent: "#6b4c35",
-  },
+  "Recent Acquisitions": {
+  image: "https://images.unsplash.com/photo-1583521214690-73421a1829a9?w=800&q=80",
+  label: "Recent Acquisitions",
+  years: "Newly Added",
+  description: "The latest additions to the archive — freshly catalogued pieces from across all eras",
+  accent: "#7a6a4a",
+},
   "World War I": {
     image: "https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=800&q=80",
     label: "World War I",
