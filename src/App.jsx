@@ -21,13 +21,13 @@ const ERA_CONFIG = {
     description: "Browse the complete archive of artifacts spanning American military history",
     accent: "#8b7355",
   },
-  "Recent Acquisitions": {
-  image: "https://images.unsplash.com/photo-1583521214690-73421a1829a9?w=800&q=80",
-  label: "Recent Acquisitions",
-  years: "Newly Added",
-  description: "The latest additions to the archive — freshly catalogued pieces from across all eras",
-  accent: "#7a6a4a",
-},
+  "Civil War": {
+    image: "https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=800&q=80",
+    label: "Civil War",
+    years: "1861 – 1865",
+    description: "Artifacts from the War Between the States — uniforms, arms, and personal effects",
+    accent: "#6b4c35",
+  },
   "World War I": {
     image: "https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=800&q=80",
     label: "World War I",
@@ -56,11 +56,20 @@ const ERA_CONFIG = {
     description: "Additional military artifacts from conflicts and periods across American history",
     accent: "#4a3a5c",
   },
+  "Recent Acquisitions": {
+    image: "https://images.unsplash.com/photo-1583521214690-73421a1829a9?w=800&q=80",
+    label: "Recent Acquisitions",
+    years: "Newly Added",
+    description: "The latest additions to the archive — freshly catalogued pieces from across all eras",
+    accent: "#7a6a4a",
+  },
 };
 
 const HERO_IMAGES = [
-  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6742.jpeg",
-  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6752.jpeg",
+  "https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=1600&q=80",
+  "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1600&q=80",
+  "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=1600&q=80",
+  "https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=1600&q=80",
 ];
 
 const styles = `
