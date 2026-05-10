@@ -9,7 +9,7 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const BUCKET = "the-collection-images";
 
-const ERAS = ["All", "World War I", "World War II", "Vietnam War", "Other", "Recent Acquisitions"];
+const ERAS = ["All", "Recent Acquisitions", "World War I", "World War II", "Vietnam War", "Other"];
 const CATEGORIES = ["All", "Uniforms", "Medals & Badges", "Weapons", "Documents", "Equipment", "Photographs", "Maps", "Insignia", "Other"];
 
 // Era configuration with placeholder images and descriptions
