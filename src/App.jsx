@@ -406,6 +406,25 @@ const styles = `
     color: rgba(240,236,228,0.7);
   }
 
+  /* ── INQUIRE BUTTON ON CARDS ── */
+  .btn-inquire-card {
+    display: block; width: 100%;
+    font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.6rem 1rem; margin-top: 0.75rem;
+    background: transparent; border: 1px solid rgba(139,115,85,0.4); color: #8b7355;
+    cursor: pointer; transition: all 0.2s; border-radius: 2px;
+  }
+  .btn-inquire-card:hover { background: #8b7355; color: #fff; border-color: #8b7355; }
+
+  /* ── INQUIRE SUCCESS ── */
+  .inquire-success {
+    text-align: center; padding: 2rem 1rem;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .inquire-success h3 { font-size: 1.6rem; font-weight: 400; color: #2c2318; margin-bottom: 0.5rem; }
+  .inquire-success p { font-family: 'Raleway', sans-serif; font-size: 0.75rem; font-weight: 300; color: #8b7355; letter-spacing: 0.08em; }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -434,6 +453,14 @@ export default function App() {
   const [saving, setSaving] = useState(false);
   const [authError, setAuthError] = useState("");
   const [authForm, setAuthForm] = useState({ email: "", password: "" });
+
+  // Inquire modal
+  const [showInquireModal, setShowInquireModal] = useState(false);
+  const [inquireItem, setInquireItem] = useState("");
+  const [inquireForm, setInquireForm] = useState({ name: "", email: "", item: "", message: "" });
+  const [inquireSending, setInquireSending] = useState(false);
+  const [inquireSuccess, setInquireSuccess] = useState(false);
+  const [inquireError, setInquireError] = useState("");
 
   // Lightbox
   const [lightbox, setLightbox] = useState(null);
@@ -479,6 +506,33 @@ export default function App() {
     setSelectedEra(era);
     setCategoryFilter("All");
     setPage("gallery");
+  }
+
+  function openInquire(itemName = "") {
+    setInquireItem(itemName);
+    setInquireForm({ name: "", email: "", item: itemName, message: "" });
+    setInquireSuccess(false);
+    setInquireError("");
+    setShowInquireModal(true);
+  }
+
+  async function handleInquireSubmit() {
+    if (!inquireForm.name || !inquireForm.email || !inquireForm.message) return;
+    setInquireSending(true);
+    setInquireError("");
+    try {
+      const res = await fetch("/api/inquire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(inquireForm),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setInquireSuccess(true);
+    } catch {
+      setInquireError("Something went wrong. Please try again.");
+    } finally {
+      setInquireSending(false);
+    }
   }
 
   // Auth
@@ -562,6 +616,7 @@ export default function App() {
               Browse by Era
             </button>
           )}
+          <button className="btn-nav btn-nav-outline" onClick={() => openInquire()}>Inquire</button>
           {user ? (
             <>
               <button className="btn-nav btn-nav-solid" onClick={openAdd}>+ Add Item</button>
@@ -687,6 +742,9 @@ export default function App() {
                     <div className="item-title">{item.title}</div>
                     <div className="item-meta">{item.category}{item.year ? ` · ${item.year}` : ""}</div>
                     {item.description && <div className="item-desc">{item.description}</div>}
+                    <button className="btn-inquire-card" onClick={e => { e.stopPropagation(); openInquire(item.title); }}>
+                      Inquire About This Item
+                    </button>
                   </div>
                 </div>
               ))}
@@ -779,6 +837,58 @@ export default function App() {
               <button className="btn-submit" onClick={handleSave} disabled={saving}>
                 {saving ? "Saving…" : editItem ? "Save Changes" : "Add to Archive"}
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ── INQUIRE MODAL ── */}
+      {showInquireModal && (
+        <div className="modal-overlay" onClick={() => setShowInquireModal(false)}>
+          <div className="modal" onClick={e => e.stopPropagation()}>
+            <div className="modal-header">
+              <div className="modal-title">Make an Inquiry</div>
+              <button className="modal-close" onClick={() => setShowInquireModal(false)}>✕</button>
+            </div>
+            <div className="modal-body">
+              {inquireSuccess ? (
+                <div className="inquire-success">
+                  <h3>Message Sent</h3>
+                  <p>Thank you for your inquiry. We'll be in touch shortly.</p>
+                </div>
+              ) : (
+                <>
+                  {inquireError && <div className="auth-error">{inquireError}</div>}
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label className="form-label">Name *</label>
+                      <input className="form-input" value={inquireForm.name}
+                        onChange={e => setInquireForm(f => ({ ...f, name: e.target.value }))}
+                        placeholder="Your name" />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Email *</label>
+                      <input className="form-input" type="email" value={inquireForm.email}
+                        onChange={e => setInquireForm(f => ({ ...f, email: e.target.value }))}
+                        placeholder="your@email.com" />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Item of Interest</label>
+                    <input className="form-input" value={inquireForm.item}
+                      onChange={e => setInquireForm(f => ({ ...f, item: e.target.value }))}
+                      placeholder="e.g. M1 Garand Rifle, or leave blank for general inquiry" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Message *</label>
+                    <textarea className="form-textarea" value={inquireForm.message}
+                      onChange={e => setInquireForm(f => ({ ...f, message: e.target.value }))}
+                      placeholder="Tell us what you're looking for…" />
+                  </div>
+                  <button className="btn-submit" onClick={handleInquireSubmit} disabled={inquireSending}>
+                    {inquireSending ? "Sending…" : "Send Inquiry"}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
