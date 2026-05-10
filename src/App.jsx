@@ -9,7 +9,7 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const BUCKET = "the-collection-images";
 
-const ERAS = ["All", "Civil War", "World War I", "World War II", "Vietnam War", "Other", "Recent Acquisitions"];
+const ERAS = ["All", "World War I", "World War II", "Vietnam War", "Other", "Recent Acquisitions"];
 const CATEGORIES = ["All", "Uniforms", "Medals & Badges", "Weapons", "Documents", "Equipment", "Photographs", "Maps", "Insignia", "Other"];
 
 // Era configuration with placeholder images and descriptions
@@ -21,13 +21,7 @@ const ERA_CONFIG = {
     description: "Browse the complete archive of artifacts spanning American military history",
     accent: "#8b7355",
   },
-  "Civil War": {
-    image: "https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=800&q=80",
-    label: "Civil War",
-    years: "1861 – 1865",
-    description: "Artifacts from the War Between the States — uniforms, arms, and personal effects",
-    accent: "#6b4c35",
-  },
+
   "World War I": {
     image: "https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=800&q=80",
     label: "World War I",
@@ -66,10 +60,10 @@ const ERA_CONFIG = {
 };
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=1600&q=80",
-  "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1600&q=80",
-  "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=1600&q=80",
-  "https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=1600&q=80",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6742.jpeg",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6745%20(1).jpeg",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6752.jpeg",
+  "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_6755%20(1).jpeg",
 ];
 
 const styles = `
