@@ -18,7 +18,7 @@ const ERA_CONFIG = {
     image: "https://images.unsplash.com/photo-1447703693928-9cddb87d9d78?w=800&q=80",
     label: "Full Collection",
     years: "1860 – Present",
-    description: "Browse the current archive of artifacts",
+    description: "Browse the complete archive of artifacts spanning American military history",
     accent: "#8b7355",
   },
   "Recent Acquisitions": {
@@ -723,7 +723,7 @@ export default function App() {
           ) : (
             <div className="gallery-grid">
               {filtered.map(item => (
-                <div key={item.id} className="item-card" onClick={() => item.image_url && setLightbox(item)}>
+                <div key={item.id} className="item-card" onClick={() => setLightbox(item)}>
                   <div className="item-img-wrap">
                     {item.image_url
                       ? <img src={item.image_url} alt={item.title} className="item-img" />
@@ -752,12 +752,36 @@ export default function App() {
         </div>
       )}
 
-      {/* ── LIGHTBOX ── */}
+      {/* ── ITEM DETAIL MODAL ── */}
       {lightbox && (
-        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
-          <button className="lightbox-close">✕</button>
-          <img src={lightbox.image_url} alt={lightbox.title} className="lightbox-img" onClick={e => e.stopPropagation()} />
-          <div className="lightbox-caption">{lightbox.title}{lightbox.year ? `, ${lightbox.year}` : ""}</div>
+        <div className="modal-overlay" onClick={() => setLightbox(null)}>
+          <div className="modal" style={{ maxWidth: "720px" }} onClick={e => e.stopPropagation()}>
+            <div className="modal-header">
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: "'Raleway', sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8b7355", marginBottom: "0.3rem" }}>
+                  {lightbox.era}{lightbox.year ? ` · ${lightbox.year}` : ""}
+                </div>
+                <div className="modal-title" style={{ fontSize: "1.4rem" }}>{lightbox.title}</div>
+                <div style={{ fontFamily: "'Raleway', sans-serif", fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8b7355", marginTop: "0.2rem" }}>{lightbox.category}</div>
+              </div>
+              <button className="modal-close" onClick={() => setLightbox(null)}>✕</button>
+            </div>
+            {lightbox.image_url && (
+              <div style={{ background: "#1a1008", maxHeight: "420px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={lightbox.image_url} alt={lightbox.title} style={{ maxWidth: "100%", maxHeight: "420px", objectFit: "contain" }} />
+              </div>
+            )}
+            <div className="modal-body">
+              {lightbox.description && (
+                <div style={{ fontFamily: "'Raleway', sans-serif", fontSize: "0.82rem", fontWeight: 300, lineHeight: 1.8, color: "#2c2318" }}>
+                  {lightbox.description}
+                </div>
+              )}
+              <button className="btn-submit" style={{ marginTop: "0.5rem" }} onClick={() => { setLightbox(null); openInquire(lightbox.title); }}>
+                Inquire About This Item
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
