@@ -98,7 +98,7 @@ const styles = `
   .hero { position: relative; height: 100vh; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; }
   .hero-img {
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top;
     opacity: 0; transition: opacity 1.2s ease; filter: brightness(0.45) sepia(0.3);
   }
   .hero-img.active { opacity: 1; }
@@ -919,4 +919,3 @@ export default function App() {
     </>
   );
 }
-
