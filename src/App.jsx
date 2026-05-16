@@ -18,7 +18,7 @@ const ERA_CONFIG = {
     image: "https://images.unsplash.com/photo-1447703693928-9cddb87d9d78?w=800&q=80",
     label: "Full Collection",
     years: "1860 – Present",
-    description: "Browse the complete archive of artifacts spanning American military history",
+    description: "Browse the current archive of artifacts",
     accent: "#8b7355",
   },
   "Recent Acquisitions": {
