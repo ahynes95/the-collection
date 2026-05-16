@@ -155,7 +155,7 @@ const styles = `
   .hero-dot.active { background: #c9a96e; width: 40px; }
 
   /* ── ERA SELECTION ── */
-  .era-page { min-height: 100vh; background: #f0ece4; padding-top: 80px; }
+  .era-page { min-height: 100vh; background: #f7f4ef; padding-top: 80px; }
   .era-page-header { text-align: center; padding: 4rem 2rem 3rem; }
   .era-page-eyebrow {
     font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 600;
@@ -919,3 +919,4 @@ export default function App() {
     </>
   );
 }
+
