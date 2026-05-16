@@ -155,7 +155,7 @@ const styles = `
   .hero-dot.active { background: #c9a96e; width: 40px; }
 
   /* ── ERA SELECTION ── */
-  .era-page { min-height: 100vh; background: #1a1008; padding-top: 80px; }
+  .era-page { min-height: 100vh; background: #f0ece4; padding-top: 80px; }
   .era-page-header { text-align: center; padding: 4rem 2rem 3rem; }
   .era-page-eyebrow {
     font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 600;
@@ -163,7 +163,7 @@ const styles = `
   }
   .era-page-title {
     font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300; color: #f0ece4; line-height: 1.1; margin-bottom: 1rem;
+    font-weight: 300; color: #2c2318; line-height: 1.1; margin-bottom: 1rem;
   }
   .era-page-title em { font-style: italic; color: #c9a96e; }
   .era-page-subtitle {
