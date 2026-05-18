@@ -191,10 +191,10 @@ const styles = `
   }
   .era-tile-img {
     position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-    filter: brightness(0.35) sepia(0.4);
+    filter: brightness(0.6) sepia(0.2);
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s;
   }
-  .era-tile:hover .era-tile-img { transform: scale(1.06); filter: brightness(0.25) sepia(0.3); }
+  .era-tile:hover .era-tile-img { transform: scale(1.06); filter: brightness(0.45) sepia(0.2); }
   .era-tile-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(20,14,8,0.92) 0%, rgba(20,14,8,0.2) 60%, transparent 100%);
