@@ -15,7 +15,7 @@ const CATEGORIES = ["All", "Uniforms", "Medals & Badges", "Weapons", "Documents"
 // Era configuration with placeholder images and descriptions
 const ERA_CONFIG = {
   "All": {
-    image: "https://images.unsplash.com/photo-1447703693928-9cddb87d9d78?w=800&q=80",
+    image: "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/IMG_7113.jpeg",
     label: "Full Collection",
     years: "1860 – Present",
     description: "Browse the complete archive of artifacts spanning American military history",
@@ -29,7 +29,7 @@ const ERA_CONFIG = {
     accent: "#7a6a4a",
   },
   "World War I": {
-    image: "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/WW1%20(1).jpg",
+    image: "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/WW1%20era.jpg",
     label: "World War I",
     years: "1914 – 1918",
     description: "",
@@ -50,7 +50,7 @@ const ERA_CONFIG = {
     accent: "#5c4a3a",
   },
   "Other": {
-    image: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&q=80",
+    image: "https://feazglrunmdmgugdhhnh.supabase.co/storage/v1/object/public/the-collection-images/Roosevelt_and_Rough_Riders_at_captured_San_Juan_Hill.jpg",
     label: "Other Conflicts",
     years: "Various",
     description: "",
